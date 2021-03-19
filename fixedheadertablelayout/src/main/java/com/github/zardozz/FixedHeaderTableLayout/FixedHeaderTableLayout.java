@@ -282,7 +282,7 @@ public class FixedHeaderTableLayout extends FrameLayout implements View.OnTouchL
      * @param newScaleFactor new Factor to scale the drawn TableLayout
      */
     public void calculatePanScale(float distanceX, float distanceY, float newScaleFactor){
-        Log.d(LOG_TAG, "input = " + distanceX + ":" + distanceY + ":" + newScaleFactor);
+        //Log.d(LOG_TAG, "input = " + distanceX + ":" + distanceY + ":" + newScaleFactor);
         int width = getWidth();
         int height = getHeight();
         //Log.d(LOG_TAG, "view size = " + width + " x " + height);

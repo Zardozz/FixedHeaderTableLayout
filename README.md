@@ -43,11 +43,23 @@ You can check new implementations of `TableView` on the [release page](https://g
 
 ## Installation
 
-To use this library in your Android project, just add the following dependency into your module's `build.gradle`:
+To use this library in your Android project
 
+Add Maven Central to the project's `build.gradle` :
+```
+allprojects {
+    repositories {
+        google()
+        jcenter()
+        mavenCentral()
+    }
+}
+```
+ 
+Add the following dependency into your module's `build.gradle`:
 ```
 dependencies {
-    implementation 'com.github.zardozz.library:FixedHeaderTableLayout:0.0.0.1' 
+    implementation 'com.github.Zardozz:fixedheadertablelayout:0.0.0.2' 
 }
 ```
 
