@@ -26,6 +26,7 @@
 
 ## Feature TODO list
   - [x] Nothing is clickable in the table yet.
+  - [x] Scale around pinch center.
   - [x] Corner layout location and layout direction to support Right to Left Languages
   - [x] Some type of column span (Nested Tables) support
   - [x] Making the fixed headers optional (at least one of each is required at the moment)
