@@ -1,11 +1,12 @@
 <div align="center">
     <h2>Fixed Header Table Layout for Android</h2>
-    <p align="left">
-        <p>FixedHeaderTableLayout is a powerful Android library for displaying complex data structures and rendering tabular data composed of rows, columns and cells.</p>   
-        <p>This repository also contains a sample app that is designed to show you how to create your own FixedHeaderTableLayout in your application.</p>
-        <p>FixedHeaderTableLayout is similar in construction and use as to Android's TableLayout</p>  
-    </p>
 </div>
+
+FixedHeaderTableLayout is a powerful Android library for displaying complex data structures and rendering tabular data composed of rows, columns and cells.
+
+This repository also contains a sample app that is designed to show you how to create your own FixedHeaderTableLayout in your application.
+
+FixedHeaderTableLayout is similar in construction and use as to Android's TableLayout  
 
 <p align="center">
       <img src="https://raw.githubusercontent.com/Zardozz/FixedHeaderTableLayout/master/art/FixedHeaderTableLayout.gif">
@@ -33,11 +34,11 @@
   - [x] Documentation
   - [x] Automated Tests
   - [x] Probably lots more
-  
+
 ## Limitations
   - [x] As per Android's TableLayout constructing/drawing very large tables takes some time.
-  
-  
+
+
 ## What's new
 
 You can check new implementations of `TableView` on the [release page](https://github.com/Zardozz/FixedHeaderTableLayout/releases).
@@ -56,15 +57,15 @@ allprojects {
     }
 }
 ```
- 
+
 Add the following dependency into your module's `build.gradle`:
 ```
 dependencies {
-    implementation 'com.github.Zardozz:fixedheadertablelayout:0.0.0.2' 
+    implementation 'com.github.Zardozz:fixedheadertablelayout:0.0.0.2'
 }
 ```
 
-## Documentation 
+## Documentation
 
 Please check out the [project's wiki](https://github.com/Zardozz/FixedHeaderTableLayout/wiki).
 
