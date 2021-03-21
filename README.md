@@ -1,6 +1,6 @@
 <div align="center">
     <h2>Fixed Header Table Layout for Android</h2>
-    <p align="center">
+    <p align="left">
         <p>FixedHeaderTableLayout is a powerful Android library for displaying complex data structures and rendering tabular data composed of rows, columns and cells.</p>   
         <p>This repository also contains a sample app that is designed to show you how to create your own FixedHeaderTableLayout in your application.</p>
         <p>FixedHeaderTableLayout is similar in construction and use as to Android's TableLayout</p>  
@@ -22,7 +22,7 @@
   - [x] Standard scrollbars are available
   - [x] Each column width value will be automatically adjusted to fit the largest cell in the column.
   - [x] Each row height value will be automatically adjusted to fit the largest cell in the row.
-  - [x] Support for API 16 updwards
+  - [x] Support for API 16 upwards
 
 ## Feature TODO list
   - [x] Nothing is clickable in the table yet.
