@@ -2,7 +2,7 @@
     <h2>Fixed Header Table Layout for Android</h2>
 </div>
 
-FixedHeaderTableLayout is a powerful Android library for displaying complex data structures and rendering tabular data composed of rows, columns and cells.
+FixedHeaderTableLayout is a powerful Android library for displaying complex data structures and rendering tabular data composed of rows, columns and cells with multi direction scrolling and zooming.
 
 This repository also contains a sample app that is designed to show you how to create your own FixedHeaderTableLayout in your application.
 

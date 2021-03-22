@@ -88,8 +88,8 @@ public class FixedHeaderTableLayout extends FrameLayout implements View.OnTouchL
 
     private void init(Context context){
         Log.d(LOG_TAG, "mainTable:init");
-        Log.d(LOG_TAG, "isHorizontalScrollBarEnabled: " + isHorizontalScrollBarEnabled());
-        Log.d(LOG_TAG, "isVerticalScrollBarEnabled: " + isVerticalScrollBarEnabled());
+        // Log.d(LOG_TAG, "isHorizontalScrollBarEnabled: " + isHorizontalScrollBarEnabled());
+        // Log.d(LOG_TAG, "isVerticalScrollBarEnabled: " + isVerticalScrollBarEnabled());
         // As we extend a ViewGroup these won't draw anything by default
         // enable ViewGroup drawing so the scrollbars show
         setWillNotDraw(false);
@@ -135,6 +135,20 @@ public class FixedHeaderTableLayout extends FrameLayout implements View.OnTouchL
         this.columnHeaderTable = columnHeaderTable;
         this.rowHeaderTable = rowHeaderTable;
         this.cornerTable = cornerTable;
+
+        // Set some View Id's if not already set to help with identification
+        if (mainTable.getId() == NO_ID) {
+            mainTable.setId(R.id.MainTable);
+        }
+        if (columnHeaderTable.getId() == NO_ID) {
+            columnHeaderTable.setId(R.id.ColumnHeaderTable);
+        }
+        if (rowHeaderTable.getId() == NO_ID) {
+            rowHeaderTable.setId(R.id.RowHeaderTable);
+        }
+        if (cornerTable.getId() == NO_ID) {
+            cornerTable.setId(R.id.CornerTable);
+        }
 
         // Need to measure all Tables to full (UNSPECIFIED) size
         int measureSpec = MeasureSpec.makeMeasureSpec(0, MeasureSpec.UNSPECIFIED);
