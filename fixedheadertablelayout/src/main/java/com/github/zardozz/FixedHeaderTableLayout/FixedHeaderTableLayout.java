@@ -361,6 +361,19 @@ public class FixedHeaderTableLayout extends FrameLayout implements ScaleGestureD
         return super.onInterceptTouchEvent(event);
     }
 
+    public void resetScale() {
+        calculatePanScale(0f, 0f, 1 / scaleFactor);
+    }
+    public void resetVerticalScroll() {
+        calculatePanScale(0f, panY, 1f);
+    }
+    public void resetHorizontalScroll() {
+        calculatePanScale(panX, 0f, 1f);
+    }
+    public void resetScroll() {
+        calculatePanScale(panX, panY, 1f);
+    }
+
     // We don't allow adding Views directly use addViews instead
     // So unless we have stored the instance in addViews method don't allow add.
     @Override
