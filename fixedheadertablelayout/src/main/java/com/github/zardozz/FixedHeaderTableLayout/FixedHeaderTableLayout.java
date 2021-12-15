@@ -42,7 +42,7 @@ import androidx.core.view.GestureDetectorCompat;
 
 import java.util.ArrayList;
 
-public class FixedHeaderTableLayout extends FrameLayout implements View.OnTouchListener, ScaleGestureDetector.OnScaleGestureListener, GestureDetector.OnGestureListener{
+public class FixedHeaderTableLayout extends FrameLayout implements ScaleGestureDetector.OnScaleGestureListener, GestureDetector.OnGestureListener{
     private GestureDetectorCompat detector;
 
     private ScaleGestureDetector gestureScale;
@@ -67,6 +67,8 @@ public class FixedHeaderTableLayout extends FrameLayout implements View.OnTouchL
     private int bottomBound;
     private float scaledRightBound;
     private float scaledBottomBound;
+    private float cornerRightBound;
+    private float cornerBottomBound;
 
     private static final String LOG_TAG = FixedHeaderTableLayout.class.getSimpleName();
 
@@ -95,7 +97,6 @@ public class FixedHeaderTableLayout extends FrameLayout implements View.OnTouchL
         setWillNotDraw(false);
         gestureScale = new ScaleGestureDetector(context, this);
         detector = new GestureDetectorCompat(context,this);
-        this.setOnTouchListener(this);
     }
 
     @SuppressWarnings({"UnusedDeclaration"})
@@ -236,6 +237,8 @@ public class FixedHeaderTableLayout extends FrameLayout implements View.OnTouchL
         addView(cornerTable);
 
         // Set Boundaries
+        cornerRightBound = cornerTable.getMeasuredWidth();
+        cornerBottomBound = cornerTable.getMeasuredHeight();
         rightBound = cornerTable.getMeasuredWidth() + columnHeaderTable.getMeasuredWidth();
         bottomBound = cornerTable.getMeasuredHeight() + rowHeaderTable.getMeasuredHeight();
         //Log.d(LOG_TAG, "Bounds: = " + rightBound + " , " + bottomBound);
@@ -300,6 +303,7 @@ public class FixedHeaderTableLayout extends FrameLayout implements View.OnTouchL
         int width = getWidth();
         int height = getHeight();
         //Log.d(LOG_TAG, "view size = " + width + " x " + height);
+        //Log.d(LOG_TAG, "pan = " + panX + " x " + panY);
 
         scaleFactor *= newScaleFactor;
         // Don't let the object get too small or too large.
@@ -327,6 +331,34 @@ public class FixedHeaderTableLayout extends FrameLayout implements View.OnTouchL
         cornerMatrix.setScale(scaleFactor, scaleFactor);
 
         invalidate();
+    }
+
+    @Override
+    public boolean onInterceptTouchEvent(MotionEvent event) {
+        //Log.d(LOG_TAG, "corner and table bounds: " + cornerRightBound + "/" + cornerBottomBound + " " + rightBound + "/" + bottomBound + " " + scaledRightBound + "/" + scaledBottomBound);
+        //Log.d(LOG_TAG, "event coordinates: " + event.getX() + "/" + event.getY());
+        if(event.getX() <= scaledRightBound && event.getY() <= scaledBottomBound) {
+            // Select matrix for transformation based on the target SubTable
+            Matrix matrix;
+            if (event.getX() <= cornerRightBound) {
+                if (event.getY() <= cornerBottomBound)
+                    matrix = cornerMatrix;
+                else
+                    matrix = rowHeaderMatrix;
+            } else {
+                if (event.getY() <= cornerBottomBound)
+                    matrix = columnHeaderMatrix;
+                else
+                    matrix = mainMatrix;
+            }
+            Matrix inverseMatrix = new Matrix();
+            if(matrix.invert(inverseMatrix)) {
+                event.transform(inverseMatrix);
+                //Log.d(LOG_TAG, "event transformed coordinates: " + event.getX() + "/" + event.getY());
+            } else
+                Log.d(LOG_TAG, "Failed to invert matrix");
+        }
+        return super.onInterceptTouchEvent(event);
     }
 
     // We don't allow adding Views directly use addViews instead
@@ -365,8 +397,9 @@ public class FixedHeaderTableLayout extends FrameLayout implements View.OnTouchL
     }
 
     @Override
-    public boolean onTouch(View view, MotionEvent event) {
+    public boolean onTouchEvent(MotionEvent event) {
         // Log.d(LOG_TAG, "onTouch");
+        performClick();
         gestureScale.onTouchEvent(event);
         detector.onTouchEvent(event);
         return true;
