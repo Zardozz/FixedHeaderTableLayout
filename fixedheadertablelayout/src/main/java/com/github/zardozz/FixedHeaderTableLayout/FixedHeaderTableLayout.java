@@ -443,6 +443,7 @@ public class FixedHeaderTableLayout extends FrameLayout implements ScaleGestureD
     public boolean onScroll(MotionEvent e1, MotionEvent e2, float distanceX, float distanceY) {
         //Log.d(LOG_TAG, "onScroll");
         // Don't change the scale just Pan
+        awakenScrollBars();
         calculatePanScale(distanceX, distanceY , 1);
         return true;
 
