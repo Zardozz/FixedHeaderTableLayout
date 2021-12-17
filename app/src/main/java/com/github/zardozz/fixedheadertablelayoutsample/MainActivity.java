@@ -30,6 +30,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.res.Configuration;
+import android.graphics.drawable.ColorDrawable;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.Gravity;
@@ -75,10 +76,10 @@ public class MainActivity extends AppCompatActivity {
         // Checks the orientation of the screen
         if (newConfig.orientation == Configuration.ORIENTATION_LANDSCAPE) {
             // Redraw screen calculating the new boundaries without new pan or scale
-            fixedHeaderTableLayout.calculatePanScale(0,0,1f);
+            fixedHeaderTableLayout.calculatePanScale(0,0, 0, 0, 1f);
         } else if (newConfig.orientation == Configuration.ORIENTATION_PORTRAIT){
             // Redraw screen calculating the new boundaries without new pan or scale
-            fixedHeaderTableLayout.calculatePanScale(0,0,1f);
+            fixedHeaderTableLayout.calculatePanScale(0,0, 0, 0, 1f);
         }
     }
 
@@ -157,6 +158,15 @@ public class MainActivity extends AppCompatActivity {
                 textView.setPadding(5 ,5,5,5);
                 textView.setTextSize(textSize * 1.5f);
                 textView.setTextColor(getResources().getColor(R.color.colorText));
+                textView.setOnClickListener(v -> {
+                    if (v.isSelected()){
+                        v.setSelected(false);
+                        v.setBackgroundResource(R.drawable.list_border);
+                    } else {
+                        v.setSelected(true);
+                        v.setBackgroundResource(R.drawable.selected_border);
+                    }
+                });
                 tableRowData.addView(textView);
             }
             mainTable.addView(tableRowData);
@@ -176,6 +186,15 @@ public class MainActivity extends AppCompatActivity {
                 textView.setPadding(5 ,5,5,5);
                 textView.setTextSize(textSize);
                 textView.setTextColor(getResources().getColor(R.color.colorText));
+                textView.setOnClickListener(v -> {
+                    if (v.isSelected()){
+                        v.setSelected(false);
+                        v.setBackgroundResource(R.drawable.list_border);
+                    } else {
+                        v.setSelected(true);
+                        v.setBackgroundResource(R.drawable.selected_border);
+                    }
+                });
                 tableRowData.addView(textView);
             }
             columnHeaderTable.addView(tableRowData);
@@ -196,6 +215,15 @@ public class MainActivity extends AppCompatActivity {
                 textView.setPadding(5 ,5,5,5);
                 textView.setTextSize(textSize);
                 textView.setTextColor(getResources().getColor(R.color.colorText));
+                textView.setOnClickListener(v -> {
+                    if (v.isSelected()){
+                        v.setSelected(false);
+                        v.setBackgroundResource(R.drawable.list_border);
+                    } else {
+                        v.setSelected(true);
+                        v.setBackgroundResource(R.drawable.selected_border);
+                    }
+                });
                 tableRowData.addView(textView);
             }
             rowHeaderTable.addView(tableRowData);
@@ -216,6 +244,15 @@ public class MainActivity extends AppCompatActivity {
                 textView.setPadding(5 ,5,5,5);
                 textView.setTextSize(textSize * 1.5f);
                 textView.setTextColor(getResources().getColor(R.color.colorText));
+                textView.setOnClickListener(v -> {
+                    if (v.isSelected()){
+                        v.setSelected(false);
+                        v.setBackgroundResource(R.drawable.list_border);
+                    } else {
+                        v.setSelected(true);
+                        v.setBackgroundResource(R.drawable.selected_border);
+                    }
+                });
                 tableRowData.addView(textView);
             }
             cornerTable.addView(tableRowData);

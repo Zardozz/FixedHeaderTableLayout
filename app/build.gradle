@@ -30,13 +30,27 @@ File keystorePropertiesFile = project.rootProject.file('local.properties')
 if (keystorePropertiesFile.exists()) {
     def keystoreProperties = new Properties()
     keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
-    android {
-        signingConfigs {
-            release {
-                storeFile file(keystoreProperties['keystore'])
-                storePassword keystoreProperties['keystore.storePassword']
-                keyAlias keystoreProperties['keystore.keyAlias']
-                keyPassword keystoreProperties['keystore.password']
+    // If the property file has enough properties to enable releasing
+    if (keystoreProperties['keystore'] != null &&
+            keystoreProperties['keystore.storePassword'] != null &&
+            keystoreProperties['keystore.keyAlias'] != null &&
+            keystoreProperties['keystore.password'] != null
+    ) {
+        android {
+            signingConfigs {
+                release {
+                    storeFile file(keystoreProperties['keystore'])
+                    storePassword keystoreProperties['keystore.storePassword']
+                    keyAlias keystoreProperties['keystore.keyAlias']
+                    keyPassword keystoreProperties['keystore.password']
+                }
+            }
+        }
+    } else {
+        android {
+            signingConfigs {
+                release {
+                }
             }
         }
     }

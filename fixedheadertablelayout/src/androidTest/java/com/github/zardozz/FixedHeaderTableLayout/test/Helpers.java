@@ -22,15 +22,14 @@
  * SOFTWARE.
  */
 
-package com.github.zardozz.FixedHeaderTableLayout;
+package com.github.zardozz.FixedHeaderTableLayout.test;
+
+import com.github.zardozz.FixedHeaderTableLayout.*;
 
 import android.content.Context;
-import android.graphics.Color;
 import android.graphics.Point;
 import android.view.Gravity;
 import android.widget.TextView;
-
-import org.junit.runner.manipulation.Ordering;
 
 import java.util.Locale;
 
@@ -52,7 +51,6 @@ public class Helpers {
                 textView.setText(String.format(Locale.ROOT,"D%d:%d", j, i));
                 textView.setPadding(5 ,5,5,5);
                 textView.setTextSize(textSize * 1.5f);
-                textView.setBackgroundColor(Color.WHITE);
                 tableRowData.addView(textView);
             }
             subTableLayouts[0].addView(tableRowData);
@@ -70,7 +68,6 @@ public class Helpers {
                 textView.setText(String.format(Locale.ROOT,"B%d:%d", i, j));
                 textView.setPadding(5 ,5,5,5);
                 textView.setTextSize(textSize);
-                textView.setBackgroundColor(Color.WHITE);
                 tableRowData.addView(textView);
             }
             subTableLayouts[1].addView(tableRowData);
@@ -88,7 +85,6 @@ public class Helpers {
                 textView.setText(String.format(Locale.ROOT,"C%d:%d", i, j));
                 textView.setPadding(5 ,5,5,5);
                 textView.setTextSize(textSize);
-                textView.setBackgroundColor(Color.WHITE);
                 tableRowData.addView(textView);
             }
             subTableLayouts[2].addView(tableRowData);
@@ -106,7 +102,6 @@ public class Helpers {
                 textView.setText(String.format(Locale.ROOT,"A%d:%d",i , j));
                 textView.setPadding(5 ,5,5,5);
                 textView.setTextSize(textSize * 1.5f);
-                textView.setBackgroundColor(Color.WHITE);
                 tableRowData.addView(textView);
             }
             subTableLayouts[3].addView(tableRowData);

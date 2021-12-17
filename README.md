@@ -16,24 +16,24 @@ FixedHeaderTableLayout is similar in construction and use as to Android's TableL
 <h1>This Library is current in development and is considered in an Alpha state</h1>
 
 ## Features
-  - [x] 1 to X number of rows can be fixed as column headers at the top of the table
-  - [x] 1 to X number of rows can be fixed as row headers at the left of the table
-  - [x] Multi direction scrolling is available if the table is larger than the screen
-  - [x] Pinch Zoom is available
-  - [x] Standard scrollbars are available
+  - [x] 1 to X number of rows can be fixed as column headers at the top of the table.
+  - [x] 1 to X number of rows can be fixed as row headers at the left of the table.
+  - [x] Multi direction scrolling is available if the table is larger than the screen.
+  - [x] Pinch Zoom is available.
+  - [x] Standard scrollbars are available.
+  - [x] Clicks are passed to children views.
   - [x] Each column width value will be automatically adjusted to fit the largest cell in the column.
   - [x] Each row height value will be automatically adjusted to fit the largest cell in the row.
   - [x] Support for API 16 upwards
 
 ## Feature TODO list
-  - [x] Nothing is clickable in the table yet.
   - [x] Scale around pinch center.
-  - [x] Corner layout location and layout direction to support Right to Left Languages
-  - [x] Some type of column span (Nested Tables) support
-  - [x] Making the fixed headers optional (at least one of each is required at the moment)
-  - [x] Documentation
-  - [x] Automated Tests
-  - [x] Probably lots more
+  - [x] Corner layout location and layout direction to support Right to Left Languages.
+  - [x] Some type of column span (Nested Tables) support.
+  - [x] Making the fixed headers optional (at least one of each is required at the moment).
+  - [x] Documentation.
+  - [x] Automated Tests.
+  - [x] Probably lots more.
 
 ## Limitations
   - [x] As per Android's TableLayout constructing/drawing very large tables takes some time.

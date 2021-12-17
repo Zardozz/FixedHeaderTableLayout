@@ -25,6 +25,7 @@
 package com.github.zardozz.FixedHeaderTableLayout;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.os.Build;
 import android.util.AttributeSet;
 import android.util.Log;
@@ -65,6 +66,8 @@ public class FixedHeaderSubTableLayout extends LinearLayout {
         // Log.d(LOG_TAG, "init: " + Integer.toHexString(System.identityHashCode(this)) );
         // Row are always vertical
         super.setOrientation(LinearLayout.VERTICAL);
+        // set background to be white as transparent shows the main table panning underneath the others
+        setBackgroundColor(Color.WHITE);
     }
 
     /**

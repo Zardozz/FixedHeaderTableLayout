@@ -38,13 +38,27 @@ File keystorePropertiesFile = project.rootProject.file('local.properties')
 if (keystorePropertiesFile.exists()) {
     def keystoreProperties = new Properties()
     keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
-    android {
-        signingConfigs {
-            release {
-                storeFile file(keystoreProperties['keystore'])
-                storePassword keystoreProperties['keystore.storePassword']
-                keyAlias keystoreProperties['keystore.keyAlias']
-                keyPassword keystoreProperties['keystore.password']
+    // If the property file has enough properties to enable releasing
+    if (keystoreProperties['keystore'] != null &&
+            keystoreProperties['keystore.storePassword'] != null &&
+            keystoreProperties['keystore.keyAlias'] != null &&
+            keystoreProperties['keystore.password'] != null
+    ) {
+        android {
+            signingConfigs {
+                release {
+                    storeFile file(keystoreProperties['keystore'])
+                    storePassword keystoreProperties['keystore.storePassword']
+                    keyAlias keystoreProperties['keystore.keyAlias']
+                    keyPassword keystoreProperties['keystore.password']
+                }
+            }
+        }
+    } else {
+        android {
+            signingConfigs {
+                release {
+                }
             }
         }
     }
@@ -58,13 +72,11 @@ if (keystorePropertiesFile.exists()) {
 }
 
 android {
-    compileSdkVersion 29
+    compileSdkVersion 30
 
     defaultConfig {
         minSdkVersion 16
-        targetSdkVersion 29
-        versionCode 2
-        versionName "0.0.0.2"
+        targetSdkVersion 30
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -87,10 +99,10 @@ android {
 }
 
 dependencies {
-    implementation 'androidx.appcompat:appcompat:1.2.0'
+    implementation 'androidx.appcompat:appcompat:1.3.1'
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'junit:junit:4.13.2'
-    androidTestImplementation 'androidx.test:rules:1.3.0'
-    androidTestImplementation 'androidx.test.ext:junit:1.1.2'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+    androidTestImplementation 'androidx.test:rules:1.4.0'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.3'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
 }

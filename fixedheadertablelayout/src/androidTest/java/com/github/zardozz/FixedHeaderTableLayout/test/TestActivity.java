@@ -22,7 +22,7 @@
  * SOFTWARE.
  */
 
-package com.github.zardozz.FixedHeaderTableLayout;
+package com.github.zardozz.FixedHeaderTableLayout.test;
 
 import android.app.Activity;
 
