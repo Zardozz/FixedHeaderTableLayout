@@ -61,7 +61,7 @@ allprojects {
 Add the following dependency into your module's `build.gradle`:
 ```
 dependencies {
-    implementation 'com.github.Zardozz:fixedheadertablelayout:0.0.0.2'
+    implementation 'com.github.Zardozz:fixedheadertablelayout:0.0.0.3'
 }
 ```
 
