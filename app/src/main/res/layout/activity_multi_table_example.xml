@@ -28,34 +28,21 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".MultiTableExampleActivity">
 
     <ScrollView
+        android:id="@+id/scrollView"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
         <LinearLayout
+            android:id="@+id/Frame"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <Button
-                android:id="@+id/main_example"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:onClick="mainExample"
-                android:text="@string/main_example" />
-
-            <Button
-                android:id="@+id/multi_table_example"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:onClick="multiTableExample"
-                android:text="@string/multi_table_example" />
-        </LinearLayout>
+            android:layout_height="match_parent"
+            android:orientation="vertical" />
     </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>

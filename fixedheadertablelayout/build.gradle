@@ -28,7 +28,7 @@ plugins {
 
 ext {
     PUBLISH_GROUP_ID = 'com.github.Zardozz'
-    PUBLISH_VERSION = '0.0.0.3'
+    PUBLISH_VERSION = '0.0.0.4'
     PUBLISH_ARTIFACT_ID = 'fixedheadertablelayout'
 }
 

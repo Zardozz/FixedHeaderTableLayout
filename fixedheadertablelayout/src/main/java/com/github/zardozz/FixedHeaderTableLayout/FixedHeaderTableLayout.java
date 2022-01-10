@@ -234,38 +234,38 @@ public class FixedHeaderTableLayout extends FrameLayout implements ScaleGestureD
         // Merge of the widths and height to align all the table rows
         // Get the max column width in mainTable and columnHeaderTable
         ArrayList<Integer> overallRightSideMaxColumnWidth = new ArrayList<>();
-        overallRightSideMaxColumnWidth = calculateMaxColumnWidth(overallRightSideMaxColumnWidth, mainTable);
-        overallRightSideMaxColumnWidth = calculateMaxColumnWidth(overallRightSideMaxColumnWidth, columnHeaderTable);
+        overallRightSideMaxColumnWidth = Utils.calculateMaxColumnWidth(overallRightSideMaxColumnWidth, mainTable);
+        overallRightSideMaxColumnWidth = Utils.calculateMaxColumnWidth(overallRightSideMaxColumnWidth, columnHeaderTable);
         //Log.d(LOG_TAG, "overallRightSideMaxColumnWidth:" + overallRightSideMaxColumnWidth);
         // Set the new max column width in mainTable and columnHeaderTable
-        setMaxColumnWidth(overallRightSideMaxColumnWidth, mainTable);
-        setMaxColumnWidth(overallRightSideMaxColumnWidth, columnHeaderTable);
+        Utils.setMaxColumnWidth(overallRightSideMaxColumnWidth, mainTable);
+        Utils.setMaxColumnWidth(overallRightSideMaxColumnWidth, columnHeaderTable);
         // Get the max column width in cornerTable and rowHeaderTable
         ArrayList<Integer> overallLeftSideMaxColumnWidth = new ArrayList<>();
-        overallLeftSideMaxColumnWidth = calculateMaxColumnWidth(overallLeftSideMaxColumnWidth, rowHeaderTable);
-        overallLeftSideMaxColumnWidth = calculateMaxColumnWidth(overallLeftSideMaxColumnWidth, cornerTable);
+        overallLeftSideMaxColumnWidth = Utils.calculateMaxColumnWidth(overallLeftSideMaxColumnWidth, rowHeaderTable);
+        overallLeftSideMaxColumnWidth = Utils.calculateMaxColumnWidth(overallLeftSideMaxColumnWidth, cornerTable);
         //Log.d(LOG_TAG, "overallLeftSideMaxColumnWidth:" + overallLeftSideMaxColumnWidth);
         // Set the new max column width in mainTable and columnHeaderTable
-        setMaxColumnWidth(overallLeftSideMaxColumnWidth, rowHeaderTable);
-        setMaxColumnWidth(overallLeftSideMaxColumnWidth, cornerTable);
+        Utils.setMaxColumnWidth(overallLeftSideMaxColumnWidth, rowHeaderTable);
+        Utils.setMaxColumnWidth(overallLeftSideMaxColumnWidth, cornerTable);
 
         // Get the max row height in mainTable and rowHeaderTable
         ArrayList<Integer> overallBottomSideMaxRowHeights = new ArrayList<>();
-        overallBottomSideMaxRowHeights = calculateMaxRowHeight(overallBottomSideMaxRowHeights, mainTable);
-        overallBottomSideMaxRowHeights = calculateMaxRowHeight(overallBottomSideMaxRowHeights, rowHeaderTable);
+        overallBottomSideMaxRowHeights = Utils.calculateMaxRowHeight(overallBottomSideMaxRowHeights, mainTable);
+        overallBottomSideMaxRowHeights = Utils.calculateMaxRowHeight(overallBottomSideMaxRowHeights, rowHeaderTable);
         //Log.d(LOG_TAG, "overallBottomSideMaxRowHeights:" + overallBottomSideMaxRowHeights);
         // Set the max row height in mainTable and rowHeaderTable
-        setMaxRowHeight(overallBottomSideMaxRowHeights, mainTable);
-        setMaxRowHeight(overallBottomSideMaxRowHeights, rowHeaderTable);
+        Utils.setMaxRowHeight(overallBottomSideMaxRowHeights, mainTable);
+        Utils.setMaxRowHeight(overallBottomSideMaxRowHeights, rowHeaderTable);
 
         // Get the max row height in columnHeaderTable and cornerTable
         ArrayList<Integer> overallTopSideMaxRowHeights = new ArrayList<>();
-        overallTopSideMaxRowHeights = calculateMaxRowHeight(overallTopSideMaxRowHeights, columnHeaderTable);
-        overallTopSideMaxRowHeights = calculateMaxRowHeight(overallTopSideMaxRowHeights, cornerTable);
+        overallTopSideMaxRowHeights = Utils.calculateMaxRowHeight(overallTopSideMaxRowHeights, columnHeaderTable);
+        overallTopSideMaxRowHeights = Utils.calculateMaxRowHeight(overallTopSideMaxRowHeights, cornerTable);
         //Log.d(LOG_TAG, "overallTopSideMaxRowHeights:" + overallTopSideMaxRowHeights);
         // Set the max row height in mainTable and rowHeaderTable
-        setMaxRowHeight(overallTopSideMaxRowHeights, columnHeaderTable);
-        setMaxRowHeight(overallTopSideMaxRowHeights, cornerTable);
+        Utils.setMaxRowHeight(overallTopSideMaxRowHeights, columnHeaderTable);
+        Utils.setMaxRowHeight(overallTopSideMaxRowHeights, cornerTable);
 
 
         // Remeasure Tables using the new set of aligned Heights and widths
@@ -314,50 +314,7 @@ public class FixedHeaderTableLayout extends FrameLayout implements ScaleGestureD
         //Log.d(LOG_TAG, "Scaled Bounds: = " + scaledRightBound + " , " + scaledBottomBound);
     }
 
-    private ArrayList<Integer> calculateMaxRowHeight(ArrayList<Integer> existHeights, FixedHeaderSubTableLayout table) {
-        for (int row = 0; row < table.getChildCount(); row++) {
-            FixedHeaderTableRow tableRow = (FixedHeaderTableRow) table.getChildAt(row);
-            if (existHeights.size() <= row){
-                // Not seen this row number before so add
-                existHeights.add(tableRow.getMaxChildHeight());
-            } else {
-                // Take the max of existing value and new value
-                existHeights.set(row, Math.max(existHeights.get(row), tableRow.getMaxChildHeight()));
-            }
-        }
-        return existHeights;
-    }
 
-    private void setMaxRowHeight(ArrayList<Integer> newHeights, FixedHeaderSubTableLayout table){
-        for (int row = 0; row < table.getChildCount(); row++) {
-            FixedHeaderTableRow tableRow = (FixedHeaderTableRow) table.getChildAt(row);
-            tableRow.setMaxChildHeight(newHeights.get(row));
-        }
-    }
-
-    private ArrayList<Integer> calculateMaxColumnWidth(ArrayList<Integer> existWidths, FixedHeaderSubTableLayout table) {
-        for (int row = 0; row < table.getChildCount(); row++) {
-            FixedHeaderTableRow tableRow = (FixedHeaderTableRow) table.getChildAt(row);
-            ArrayList<Integer> rowColumnWidth = tableRow.getColumnWidths();
-            for (int column = 0; column < rowColumnWidth.size(); column++) {
-                if (existWidths.size() <= column) {
-                    // Not seen this column number before so add
-                    existWidths.add(rowColumnWidth.get(column));
-                } else {
-                    // Take the max of existing value and new value
-                    existWidths.set(column, Math.max(existWidths.get(column), rowColumnWidth.get(column)));
-                }
-            }
-        }
-        return  existWidths;
-    }
-
-    private void setMaxColumnWidth(ArrayList<Integer> newWidths, FixedHeaderSubTableLayout table){
-        for (int row = 0; row < table.getChildCount(); row++) {
-            FixedHeaderTableRow tableRow = (FixedHeaderTableRow) table.getChildAt(row);
-            tableRow.setColumnWidths(newWidths);
-        }
-    }
 
     /**
      * This method pans and scales the bitmaps of the converted TableLayout

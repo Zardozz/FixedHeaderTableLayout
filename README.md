@@ -26,6 +26,20 @@ FixedHeaderTableLayout is similar in construction and use as to Android's TableL
   - [x] Each row height value will be automatically adjusted to fit the largest cell in the row.
   - [x] Support for API 16 upwards
 
+## Bonus Feature
+The FixedHeaderSubTableLayout behaves like a normal TableLayout But it gives you direct access to the cell sizes.
+
+Thus it is possible to align cells between independent tables allowing you to build more complicated tables with borders easier,
+easily split tables across print pages, viewpager, etc by using modular groups of aligned tables next to each other.
+It also allows a form of column spanning, a column in one table can be made to be the size of multiple columns
+in the adjacent table, so it looks like column spanning.
+
+Some examples in the MultiTableExample in the Example App.
+
+<p align="center">
+      <img src="https://raw.githubusercontent.com/Zardozz/FixedHeaderTableLayout/master/art/MultiTableExample.png">
+</p>
+
 ## Feature TODO list
   - [x] Scale around pinch center.
   - [x] Corner layout location and layout direction to support Right to Left Languages.
@@ -61,7 +75,7 @@ allprojects {
 Add the following dependency into your module's `build.gradle`:
 ```
 dependencies {
-    implementation 'com.github.Zardozz:fixedheadertablelayout:0.0.0.3'
+    implementation 'com.github.Zardozz:fixedheadertablelayout:0.0.0.4'
 }
 ```
 

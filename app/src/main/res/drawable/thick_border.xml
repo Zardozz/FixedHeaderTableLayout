@@ -1,7 +1,7 @@
-<!--
+<?xml version="1.0" encoding="utf-8"?><!--
   ~  MIT License
   ~
-  ~ Copyright (c) 2021 Andrew Beck
+  ~ Copyright (c) 2022 Andrew Beck
   ~
   ~ Permission is hereby granted, free of charge, to any person obtaining a copy
   ~ of this software and associated documentation files (the "Software"), to deal
@@ -22,8 +22,7 @@
   ~ SOFTWARE.
   -->
 
-<resources>
-    <string name="app_name">FixedHeaderTableLayout</string>
-    <string name="main_example">Main Example</string>
-    <string name="multi_table_example">Multi Table Example</string>
-</resources>
+<shape xmlns:android="http://schemas.android.com/apk/res/android" android:shape="rectangle" >
+    <solid android:color="@android:color/transparent" />
+    <stroke android:width="2px" android:color="@color/colorHeader"/>
+</shape>
