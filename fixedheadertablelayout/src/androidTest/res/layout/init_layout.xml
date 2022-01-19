@@ -34,8 +34,8 @@
         android:id="@+id/FixedHeaderTableLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:min_scale="0.1"
-        app:max_scale="3.0"
+        app:fhtl_min_scale="0.1"
+        app:fhtl_max_scale="3.0"
     />
 
 </FrameLayout>
