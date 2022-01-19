@@ -25,15 +25,8 @@
 
 <resources>
     <declare-styleable name="FixedHeaderTableLayout">
-        <attr name="min_scale" format="float"/>
-        <attr name="max_scale" format="float"/>
-        <attr name="corner_view_location">
-            <enum name="top_left" value="0"/>
-            <enum name="top_right" value="1"/>
-            <enum name="bottom_left" value="2"/>
-            <enum name="bottom_right" value="3"/>
-        </attr>
-        <attr name="reverse_layout" format="boolean" />
+        <attr name="fhtl_min_scale" format="float"/>
+        <attr name="fhtl_max_scale" format="float"/>
     </declare-styleable>
 
 </resources>

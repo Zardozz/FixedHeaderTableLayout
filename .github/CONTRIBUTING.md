@@ -34,4 +34,4 @@ Every contribution is welcome to the library. Simply [open a new Pull Request](h
 Note that by making a contribution to this project you are agreeing to have your contributions governed by the [MIT License](https://github.com/Zardozz/FixedHeaderTableLayout/blob/master/LICENSE) copyright statement.
 This means that to the extent possible under law, you transfer all copyright and related or neighbouring rights of the code or documents you contribute to the project itself. You also represent that you have the authority to perform the above waiver with respect to the entirety of you contributions.
 
-Ideally contributions should have an demo of any new feature in the Demo App (that can be turned on or off if it impacts other feature demos) and or some automated tests related to the contribution
+Ideally contributions should have a demo of any new feature in the Demo App (that can be turned on/off or a separate demo if it impacts other feature demos) and or some automated tests related to the contribution

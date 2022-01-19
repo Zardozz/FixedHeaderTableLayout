@@ -79,30 +79,6 @@ public class FixedHeaderTableLayout extends FrameLayout implements ScaleGestureD
     private float scaledRightBound;
     private float scaledBottomBound;
 
-    private CornerViewLocation mCornerViewLocation;
-
-    private boolean mReverseLayout = false;
-
-    public enum CornerViewLocation {
-        TOP_LEFT(0),
-        TOP_RIGHT(1),
-        BOTTOM_LEFT(2),
-        BOTTOM_RIGHT(3);
-        int id;
-
-        CornerViewLocation(int id) {
-            this.id = id;
-        }
-
-        static CornerViewLocation fromId(int id) {
-            for (CornerViewLocation c : values()) {
-                if (c.id == id) return c;
-            }
-            // If enum not found return default of Top Left
-            return TOP_LEFT;
-        }
-    }
-
     private static final String LOG_TAG = FixedHeaderTableLayout.class.getSimpleName();
 
 
@@ -130,33 +106,20 @@ public class FixedHeaderTableLayout extends FrameLayout implements ScaleGestureD
             return;
         }
 
-        // Cornerview location
-        mCornerViewLocation = FixedHeaderTableLayout.CornerViewLocation.TOP_LEFT;
-
-        // Reverse Layout
-        mReverseLayout = false;
-
         // Get values from xml attributes
         TypedArray a = getContext().getTheme().obtainStyledAttributes(attrs, R.styleable
                 .FixedHeaderTableLayout, 0, 0);
 
         try {
-            minScale = a.getFloat(R.styleable.FixedHeaderTableLayout_min_scale, minScale);
-            maxScale = a.getFloat(R.styleable.FixedHeaderTableLayout_max_scale, maxScale);
-
-            // CornerView location
-            mCornerViewLocation = CornerViewLocation.fromId(a.getInt(R.styleable.FixedHeaderTableLayout_corner_view_location, 0));
-
-            // Reverse Layout
-            mReverseLayout = a.getBoolean(R.styleable.FixedHeaderTableLayout_reverse_layout, mReverseLayout);
-
+            minScale = a.getFloat(R.styleable.FixedHeaderTableLayout_fhtl_min_scale, minScale);
+            maxScale = a.getFloat(R.styleable.FixedHeaderTableLayout_fhtl_max_scale, maxScale);
         } finally {
             a.recycle();
         }
     }
 
     private void init(Context context){
-        Log.d(LOG_TAG, "mainTable:init");
+       //Log.d(LOG_TAG, "mainTable:init");
 
         // Get our current View slop for Scrolling
         mTouchSlop = ViewConfiguration.get(context).getScaledTouchSlop();

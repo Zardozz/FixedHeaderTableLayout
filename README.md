@@ -66,7 +66,6 @@ Add Maven Central to the project's `build.gradle` :
 allprojects {
     repositories {
         google()
-        jcenter()
         mavenCentral()
     }
 }
@@ -75,7 +74,7 @@ allprojects {
 Add the following dependency into your module's `build.gradle`:
 ```
 dependencies {
-    implementation 'com.github.Zardozz:fixedheadertablelayout:0.0.0.4'
+    implementation 'com.github.Zardozz:fixedheadertablelayout:0.0.0.5'
 }
 ```
 
